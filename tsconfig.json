@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "rootDir": "./src",
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "strict": true,
+    "sourceMap": false,
+    "paths": {
+      "#plugins/*": [
+        "./src/plugins/*"
+      ],
+      "#routes/*": [
+        "./src/routes/*"
+      ],
+      "#src/*": [
+        "./src/*"
+      ],
+      "#test/*": [
+        "./test/*"
+      ],
+      "#types/*": [
+        "./src/types/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "@plugins/*": [
+        "./src/plugins/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
