@@ -28,4 +28,3 @@ export const scanScreenshotSchema: FastifySchema = {
         }, "Screenshot analyzed successfully"),
     },
 };
-

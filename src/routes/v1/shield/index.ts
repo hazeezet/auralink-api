@@ -50,4 +50,3 @@ const shieldRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
 };
 
 export default shieldRoutes;
-

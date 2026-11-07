@@ -60,4 +60,3 @@ export const convertSchema: FastifySchema = {
         }, "Conversion completed successfully"),
     },
 };
-

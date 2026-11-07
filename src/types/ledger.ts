@@ -28,4 +28,3 @@ export interface PayoutInput {
 export interface ConvertInput {
     amountNgn: number;
 }
-

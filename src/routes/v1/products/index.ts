@@ -18,4 +18,3 @@ const productsRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
 };
 
 export default productsRoutes;
-

@@ -314,4 +314,3 @@ const ordersRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
 };
 
 export default ordersRoutes;
-

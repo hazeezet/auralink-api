@@ -164,4 +164,3 @@ export const simulatePaymentSchema: FastifySchema = {
         200: standardSuccessResponseSchema(orderObjectSchema, "Payment simulated successfully"),
     },
 };
-

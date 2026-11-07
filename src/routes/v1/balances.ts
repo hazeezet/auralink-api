@@ -18,4 +18,3 @@ const balancesRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
 };
 
 export default balancesRoutes;
-

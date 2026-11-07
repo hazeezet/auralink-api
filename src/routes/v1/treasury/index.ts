@@ -108,4 +108,3 @@ const treasuryRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
 };
 
 export default treasuryRoutes;
-

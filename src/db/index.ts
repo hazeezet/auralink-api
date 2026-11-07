@@ -28,4 +28,3 @@ export function createDatabaseContext(supabase: SupabaseClient): DatabaseContext
         products: createProductDB(supabase),
     };
 }
-

@@ -58,4 +58,3 @@ export function createLedgerDB(supabase: SupabaseClient): LedgerDB {
         },
     };
 }
-

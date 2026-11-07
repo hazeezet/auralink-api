@@ -16,4 +16,3 @@ export default fp(async function (fastify, _opts) {
     name: "db-context",
     dependencies: ["supabase"],
 });
-

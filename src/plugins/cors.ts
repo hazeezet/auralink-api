@@ -11,4 +11,3 @@ export default fp(async function (fastify, _opts) {
 }, {
     name: "cors",
 });
-

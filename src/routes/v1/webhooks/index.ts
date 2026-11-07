@@ -41,15 +41,37 @@ const webhooksRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
             }
 
             // 3. Match Order
-            const orderId = payload.data.metadata?.order_id;
-            const ref = payload.data.reference;
+            const orderId = payload.data?.metadata?.order_id as string | undefined;
+            const ref = (payload.data?.reference || payload.data?.id) as string;
 
             const order = orderId
                 ? await fastify.db.orders.findById(orderId)
                 : await fastify.db.orders.findByRef(ref);
 
-            const amountReceived = Number(payload.data.amount_received || 0);
-            const currency = payload.data.currency || "NGN";
+            // Handle cancellation / expiration events from Busha
+            if (payload.event === "payment_request.cancelled" || payload.event === "charge.cancelled") {
+                if (order && order.status === "awaiting") {
+                    await fastify.db.orders.cancel(order.id);
+                }
+                reply.response.message = "Order cancelled via webhook";
+                reply.response.data = { processed: true, event_id: payload.event_id };
+                return reply.send(reply.response);
+            }
+
+            if (payload.event === "payment_request.expired" || payload.event === "charge.expired") {
+                if (order && order.status === "awaiting") {
+                    await fastify.db.orders.expire(order.id);
+                }
+                reply.response.message = "Order expired via webhook";
+                reply.response.data = { processed: true, event_id: payload.event_id };
+                return reply.send(reply.response);
+            }
+
+            // Resolve amount received (supports multiple Busha payload schemas)
+            const rawData = payload.data as Record<string, unknown>;
+            const rawAmount = payload.data.amount_received ?? rawData.paid_amount ?? rawData.amount ?? 0;
+            const amountReceived = Number(rawAmount);
+            const currency = payload.data.currency || order?.channel || "NGN";
             const nairaValue = Number(payload.data.naira_value || (currency === "USDC" ? amountReceived * config.rates.usdcNgn : amountReceived));
             const fee = Number(payload.data.fee || Math.round(nairaValue * (config.rates.feePercent / 100)));
             const net = Math.round(nairaValue - fee);
@@ -136,4 +158,3 @@ const webhooksRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
 };
 
 export default webhooksRoutes;
-

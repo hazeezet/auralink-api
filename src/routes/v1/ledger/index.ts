@@ -32,4 +32,3 @@ const ledgerRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
 };
 
 export default ledgerRoutes;
-

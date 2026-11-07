@@ -50,4 +50,3 @@ export const getBalancesSchema: FastifySchema = {
         }, "Balances retrieved successfully"),
     },
 };
-

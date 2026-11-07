@@ -38,4 +38,3 @@ export const bushaWebhookSchema: FastifySchema = {
         }, "Webhook processed successfully"),
     },
 };
-

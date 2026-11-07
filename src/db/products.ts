@@ -58,4 +58,3 @@ export function createProductDB(supabase: SupabaseClient): ProductDB {
         },
     };
 }
-

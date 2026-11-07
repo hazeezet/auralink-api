@@ -71,4 +71,3 @@ export function createBalanceDB(supabase: SupabaseClient): BalanceDB {
         },
     };
 }
-

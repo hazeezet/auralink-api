@@ -23,4 +23,3 @@ export const listProductsSchema: FastifySchema = {
         }, "Products retrieved successfully"),
     },
 };
-
