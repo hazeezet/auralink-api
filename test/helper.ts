@@ -1,6 +1,7 @@
 // This file contains code that we reuse between our tests.
 import * as path from "node:path";
 import type * as test from "node:test";
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const helper = require("fastify-cli/helper.js");
 
 export type TestContext = {

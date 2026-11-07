@@ -32,6 +32,14 @@ const app: FastifyPluginAsync<AppOptions> = async (
         options: opts,
     });
 
+    // Compatibility rewrite for /api/* to /v1/*
+    fastify.addHook("onRequest", function (request, _reply, done) {
+        if (request.url.startsWith("/api/")) {
+            request.raw.url = request.url.replace(/^\/api\//, "/v1/");
+        }
+        done();
+    });
+
     // Default Not Found handler returning standard envelope
     fastify.setNotFoundHandler(function (_request, reply) {
         reply.response.status_code = 404;

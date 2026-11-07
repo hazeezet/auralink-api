@@ -29,6 +29,12 @@ export default fp(async function (fastify, _opts) {
             },
             tags: [
                 { name: "System", description: "System health & monitoring endpoints" },
+                { name: "Orders", description: "Order creation, status checks, and Busha paylinks" },
+                { name: "Webhooks", description: "Busha webhook receiver with HMAC signature verification" },
+                { name: "Ledger", description: "Immutable ledger entries and audit records" },
+                { name: "Treasury", description: "Naira withdrawals and USDC restock vault conversions" },
+                { name: "Screenshot Shield", description: "Receipt OCR and verification against gateway logs" },
+                { name: "Products", description: "Boutique catalogue and stock management" },
             ],
         },
     });

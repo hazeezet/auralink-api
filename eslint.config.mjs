@@ -7,6 +7,7 @@ export default defineConfig([
         "dist/**",
         "node_modules/**",
         "coverage/**",
+        "script/**",
     ]),
     js.configs.recommended,
     ...tseslint.configs.recommended,

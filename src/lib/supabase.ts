@@ -1,4 +1,4 @@
-import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { config, assertSupabaseConfigured } from "../config";
 import { appLogger } from "./logger";
 

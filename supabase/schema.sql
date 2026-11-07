@@ -95,3 +95,4 @@ INSERT INTO products (id, name, price, stock, emoji, sku) VALUES
 ('prod-5', 'Beaded Waist Beads (Set)', 12000, 40, '📿', 'ACC-WST-05'),
 ('prod-6', 'Silk Wrap Scarf', 18500, 0, '🧣', 'SCF-SLK-06')
 ON CONFLICT (id) DO NOTHING;
+
